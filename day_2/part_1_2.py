@@ -1,3 +1,5 @@
+import sys
+
 def parse_op_code(memory, pc):
     return (memory[pc], memory[pc+1], memory[pc+2], memory[pc+3])
 
@@ -15,7 +17,7 @@ def execute_instruction(memory, pc):
 
 
 def run_program(memory, pc):
-    while execute_instruction(memory, pc) is True:
+    while execute_instruction(memory, pc):
         pc += 4
 
 
@@ -41,7 +43,7 @@ for x in range(100):
         if memory[0] == 19690720:
             result = 100 * memory[1] + memory[2]
             print(f"Answer to part 2: {result}")
-            break
+            sys.exit()
         
 
 
