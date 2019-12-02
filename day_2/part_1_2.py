@@ -1,17 +1,17 @@
 import sys
 
-def parse_op_code(memory, pc):
+def parse_opcode(memory, pc):
     return (memory[pc], memory[pc+1], memory[pc+2], memory[pc+3])
 
 
 def execute_instruction(memory, pc):
     if memory[pc] == 99:
         return False
-    op_code, input_one, input_two, output = parse_op_code(memory, pc) 
-    if op_code == 1:
+    opcode, input_one, input_two, output = parse_opcode(memory, pc) 
+    if opcode == 1:
         memory[output] = memory[input_one] + memory[input_two]
         return True
-    elif op_code == 2:
+    elif opcode == 2:
         memory[output] = memory[input_one] * memory[input_two]
         return True
 
